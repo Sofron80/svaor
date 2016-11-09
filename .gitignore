@@ -1,0 +1,4 @@
+*.pyc
+.gtignore
+svaor.tar
+venv/

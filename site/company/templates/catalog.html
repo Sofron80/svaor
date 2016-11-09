@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="catalog">
+    <h3>Каталог товаров</h3>
+    {% for i in category %}
+    <p><a href="{{i.get_url}}">{{i}}</a></p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
