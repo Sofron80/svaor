@@ -13,9 +13,6 @@ def index(request):
     }
     return render(request, "index.html", date)
 
-def error(request):
-    return render(request, "my404.html", { 'title': 'Ошибка нет такой страницы'})
-
 def contact(request):
     page = Page.objects.get(slug = request.path.strip('/'))
     date = {
@@ -59,12 +56,3 @@ def category(request, cat_slug):
     }
     return render(request, "category.html", date)
 
-def tovar(request, cat_slug, tov_slug):
-    pass
-    # return render(request, {"tovar": tov_slug})
-
-def custom_500(request):
-    # print("Проверка")
-    response = render(request, '500.html', {})
-    response.status_code = 404
-    return response
