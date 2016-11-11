@@ -57,6 +57,6 @@ def category(request, cat_slug):
         "category": Category.objects.all(),
         "tovar": Tovar.objects.filter(category=category),
         "pages": Page.objects.all(),
-        "page_id": 4 ,
+        "page_id": 4,
     }
     return render(request, "category.html", date)

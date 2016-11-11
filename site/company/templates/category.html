@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="catalog">
-    <h3>{{title}}</h3>
-    {% for i in tovar %}
-    <p><a href="{{i.get_url}}">{{i}}</a></p>
-    {% endfor %}
-
-</div>
+<h3>{{title}}</h3>
+<div class="catalog clearfix">
+        {% for i in tovar %}
+        <div class="catalog-item">
+            <div class="item">
+                <div class="item-img">
+                    <a href="{{ i.get_url }}">
+                        <img src="{{ i.img.url }}" alt="{{ i.name }}">
+                    </a>
+                </div>
+                <div class="item-name"> {{ i.name }}</div>
+                <div class="item-teen">от {{ i.cena }} {{i.ed }}</div>
+                <a class="item-zak" href="#">заказать</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

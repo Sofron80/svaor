@@ -72,7 +72,7 @@ class Page(models.Model):
     def get_url(self):
         if self.slug == "index":
             return "/"
-        return "/{}/".format( self.slug)
+        return "/{}/".format(self.slug)
 
     class Meta():
         verbose_name = "Страница"
