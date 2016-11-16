@@ -14,7 +14,7 @@ class Category(models.Model):
                             blank=True, null=True)
 
     def get_url(self):
-        return "/category/{}/".format(self.slug)
+        return "/category/{}".format(self.slug)
 
     def __str__(self):
         return self.name
@@ -40,13 +40,18 @@ class Tovar(models.Model):
     cena = models.FloatField(blank=True, null=True, verbose_name="Цена")
     ed = models.CharField(max_length=50, verbose_name="Единицы измерения",
                           blank=True, null=True)
+    min_raz = models.CharField(max_length=50, verbose_name="Минимальный размер заказа",
+                          blank=True, null=True)
+    nalich = models.CharField(max_length=100, verbose_name="Наличие",
+                          blank=True, null=True)
+    
     dostavka = models.CharField(max_length=100, blank=True, null=True,
                                 verbose_name="Доставка")
     img = models.ImageField(upload_to=upload_to, blank=True, null=True)
     category = models.ForeignKey(Category)
 
     def get_url(self):
-        return "/category/{}/{}/".format(self.category.slug, self.slug)
+        return "/category/{}/{}".format(self.category.slug, self.slug)
 
     def __str__(self):
         return self.name
@@ -72,7 +77,7 @@ class Page(models.Model):
     def get_url(self):
         if self.slug == "index":
             return "/"
-        return "/{}/".format(self.slug)
+        return "/{}".format(self.slug)
 
     class Meta():
         verbose_name = "Страница"

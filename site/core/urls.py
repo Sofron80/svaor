@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from company.views import index, contact, company, catalog, category
+from company.views import index, contact, company, catalog, category, tovar
 
 
 urlpatterns = [
@@ -27,8 +27,12 @@ urlpatterns = [
     url(r'^catalog/$', catalog, name="catalog"),
     # url(r'^category/$', catalog, name="category" ),
     url(r'^category/(?P<cat_slug>[\w-]+)/$', category, name='category'),
+<<<<<<< HEAD
 
    # url(r'^category/(?P<cat_slug>[\w-]+)/(?P<tov_slug>[\w-]+)/$', tovar),
+=======
+    url(r'^category/(?P<cat_slug>[\w-]+)/(?P<tov_slug>[\w-]+)/$', tovar),
+>>>>>>> 7f378a00a07cfd7a1f8dd8c5261abacb1b5a3580
 ]
 #handler500 = custom_500
 

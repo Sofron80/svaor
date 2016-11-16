@@ -60,3 +60,15 @@ def category(request, cat_slug):
         "page_id": 4,
     }
     return render(request, "category.html", date)
+
+def tovar(request, cat_slug, tov_slug):
+    tovar = Tovar.objects.get(slug=tov_slug)
+
+    date = {
+        "title": '{} {}'.format(str(tovar), 'от компании СВАОР'),
+        "category": Category.objects.all(),
+        "tovar": tovar,
+        "pages": Page.objects.all(),
+        "page_id": 4,
+    }
+    return render(request, "tovar.html", date)
