@@ -54,7 +54,11 @@
                     <p>Товары и услуги</p>
                     <ul>
                         {% for i in category %}
-                        <li><a href="{{i.get_url}}">{{ i.name }}</a></li>
+                        {% if i.id == title.id %}
+                            <li><a class="{{'l-col-active'}}" href="{{i.get_url}}">{{ i.name }}</a></li>
+                        {% else %}
+                            <li><a class="" href="{{i.get_url}}">{{ i.name }}</a></li>
+                        {%endif%}
                         {% endfor %}
 
                     </ul> 

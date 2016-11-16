@@ -12,7 +12,7 @@
                 </div>
                 <div class="item-name"> {{ i.name }}</div>
                 <div class="item-teen">от {{ i.cena }} {{i.ed }}</div>
-                <a class="item-zak" href="#">заказать</a>
+                <a class="item-zak" href="{{i.get_url}}">Подробнее</a>
             </div>
         </div>
         {% endfor %}
