@@ -7,7 +7,44 @@ body{
     background-color: #909195;
     margin-top: 5px;
     min-width: 751px;
+
 }
+
+.form-zak{
+    padding: 15px;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    border: 2px solid #A02C2C;
+    position: fixed;
+    z-index: 100;
+    display: none;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease-out 0.5s;
+    -moz-transition: all 0.5s ease-out 0.5s;
+    -o-transition: all 0.5s ease-out 0.5s;
+    transition: all 0.5s ease-out 0.5s;
+}
+.form-zak input{
+    margin-bottom: 10px;
+}
+.closer{
+    border: 1px solid #A02C2C;
+    cursor: pointer;
+    color: #A02C2C;
+    width: 20px;
+    height: 23px;
+    position: absolute;
+    top:0;
+    right: 0;
+    margin: 10px;
+    text-align: center;
+
+}
+
 ul{
     margin: 0;
     padding: 0;
@@ -189,10 +226,22 @@ a.l-col-active:focus{
     line-height: 30px;
 }
 .catalog-item .item-zak:hover{
-    //     opacity: .85;
+    opacity: .85;
     background-color: #A02C2C;
 }
-
+.button-zak{
+    display: block;
+    height: 30px;
+    background-color: #8f0707;
+    color: #FFF;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 30px;
+}
+.button-zak:hover{
+    opacity: .85;
+    background-color: #A02C2C;
+}
 
 .foot{
     margin-top: 15px;
@@ -232,7 +281,7 @@ a.l-col-active:focus{
     width: 98%;
     padding-left: 360px;
 }
-.tovar-opis .item-zak{
+.tovar-opis .button-zak{
     display: block;
     height: 40px;
     background-color: #8f0707;
@@ -241,4 +290,10 @@ a.l-col-active:focus{
     text-align: center;
     line-height: 40px;
     width: 300px;
+}
+.form-false{
+    border: 1px solid red;
+}
+.form-true{
+    border: 1px solid green;
 }

@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 
 from .models import Category, Tovar, Page
 # Create your views here.
@@ -51,7 +52,7 @@ def catalog(request):
 def category(request, cat_slug):
     # page = Page.objects.get(slug = request.path.strip('/'))
     category = Category.objects.get(slug=cat_slug)
-
+    print(category)
     date = {
         "title": category,
         "category": Category.objects.all(),
@@ -60,6 +61,7 @@ def category(request, cat_slug):
         "page_id": 4,
     }
     return render(request, "category.html", date)
+
 
 def tovar(request, cat_slug, tov_slug):
     tovar = Tovar.objects.get(slug=tov_slug)
@@ -72,3 +74,12 @@ def tovar(request, cat_slug, tov_slug):
         "page_id": 4,
     }
     return render(request, "tovar.html", date)
+
+
+def zakaz(request):
+    from django.conf import settings
+    from django.core.mail import send_mail
+
+    print(settings.EMAIL_HOST_USER,settings.EMAIL_HOST_PASSWORD)
+    send_mail('Тема', 'Тело письма', settings.EMAIL_HOST_USER, ['sofron80@mail.ru'], fail_silently=False)
+    return HttpResponse("")
