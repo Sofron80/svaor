@@ -10,16 +10,15 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/png" />
 </head>
 <body>
-    
     <div class="form-zak" >
         <form id="form-back" action="/zakaz/" method="post">
             <div class="closer">X</div>
             {% csrf_token %}
             <h4 class="zak"></h4>
-            <input class="s-zak" type="hidden" name="zakaz" id="zakaz" value="" style="display:none">
-            <input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required="true">
+            <input class="s-zak" type="hidden" name="zakaz" id="zakaz" value="" style="display:none" tabindex="1" aria-required="true">
+            <input type="text" name="author" id="author" value="" size="22" tabindex="2" aria-required="true" required>
             <label for="author"><small>Имя (*)</small></label>
-            <input type="text" name="phone" id="phone" value="" size="22" tabindex="3" aria-required="true">
+            <input type="text" name="phone" id="phone" value="" size="22" tabindex="3" aria-required="true" required>
             <label for="phone"><small>телефон (*)</small></label>
             <textarea name="text" id="text" cols="40" rows="5"></textarea>
             <button name="submit" type="submit" id="submit">Отправить</button>
@@ -34,10 +33,9 @@
                 <div class="company-name"><a href="/">ооо сваор</a></div>
                 <a href="/"><div class="logo"></div></a>
                 <div class="top-phone">
-                            
-                            r. Омск, ул. Учебная, 79 <br /> 
-                            Тел. <b>+7 (913) 650-49-33</b> <br />
-                            Тел. <b>+7 (900) 679-35-08</b>
+                    r. Омск, ул. Учебная, 79 <br /> 
+                    Тел. <b>+7 (913) 650-49-33</b> <br />
+                    Тел. <b>+7 (900) 679-35-08</b>
                 </div>
             </div>
         </div>
@@ -49,15 +47,17 @@
                 <div class="top-menu">
                     <ul>
                         {% block topmenu %}
-                                {% for i in pages %}
+                            {% for i in pages %}
+                            <li>
                                 {% if i.id == page_id %}
-                                <li><a href="{{i.get_url}}" class="activ">{{ i.name }}</a></li>
+
+                                <a href="{{i.get_url}}" class="activ">{{ i.name }}</a></li>
                                 {% else %}
-                                <li><a href="{{i.get_url}}" >{{ i.name }}</a></li>
+                                <a href="{{i.get_url}}" >{{ i.name }}</a></li>
                                 {% endif %}
+                            </li>
                             {% endfor %}
-                        {{page_id}}
-                        {% endblock %}                        
+                        {% endblock %}
                     </ul>
                 </div>
             </div>
@@ -75,9 +75,8 @@
                             <li><a class="{{'l-col-active'}}" href="{{i.get_url}}">{{ i.name }}</a></li>
                         {% else %}
                             <li><a class="" href="{{i.get_url}}">{{ i.name }}</a></li>
-                        {%endif%}
+                        {% endif %}
                         {% endfor %}
-
                     </ul> 
                 </div>
             </div>
@@ -87,7 +86,7 @@
                     {% endblock%}
                 </div>
              </div>
-        </div>    
+        </div>
     </div>
     <div class="clearfix"></div>
     <!-- Footer   -->
@@ -104,17 +103,14 @@
                         </div>
                         <div class="opisanie">
                             <b>Краткое описание компании</b><p></p>
-                            
                             <p>Производство: общестроительных работ, конструкций разного назначения и исполнения, цистерн,емкостей,септиков и прочих сосудов.</p>
                         </div>
-                       
                     </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
-</div>
 
 <!-- ################################## -->
 

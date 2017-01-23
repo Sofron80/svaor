@@ -52,7 +52,7 @@ def catalog(request):
 def category(request, cat_slug):
     # page = Page.objects.get(slug = request.path.strip('/'))
     category = Category.objects.get(slug=cat_slug)
-    print(category)
+    # print(category)
     date = {
         "title": category,
         "category": Category.objects.all(),
@@ -65,7 +65,6 @@ def category(request, cat_slug):
 
 def tovar(request, cat_slug, tov_slug):
     tovar = Tovar.objects.get(slug=tov_slug)
-
     date = {
         "title": '{} {}'.format(str(tovar), 'от компании СВАОР'),
         "category": Category.objects.all(),
@@ -79,7 +78,8 @@ def tovar(request, cat_slug, tov_slug):
 def zakaz(request):
     from django.conf import settings
     from django.core.mail import send_mail
-
-    print(settings.EMAIL_HOST_USER,settings.EMAIL_HOST_PASSWORD)
-    send_mail('Тема', 'Тело письма', settings.EMAIL_HOST_USER, ['sofron80@mail.ru'], fail_silently=False)
+    my_post = request.POST
+    print(my_post)
+    my_send = "Товар: {}\nАвтор: {}\nТелефон: {}\nСообщение:{}".format(my_post['zakaz'], my_post['author'], my_post['phone'], my_post['text'])
+    send_mail('Заказ товара', my_send, settings.EMAIL_HOST_USER, ['89507850000s@gmail.com'], fail_silently=False)
     return HttpResponse("")

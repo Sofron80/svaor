@@ -2,3 +2,5 @@
 .gtignore
 svaor.tar
 venv/
+site/db.sqlite3
+

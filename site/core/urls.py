@@ -1,8 +1,8 @@
 from django.conf.urls import url
 from django.contrib import admin
-
+from django.conf import settings
+from django.conf.urls.static import static
 from company.views import index, contact, company, catalog, category, tovar, zakaz
-
 
 urlpatterns = [
     url(r'^$', index, name='index'),
@@ -15,9 +15,6 @@ urlpatterns = [
     url(r'^category/(?P<cat_slug>[\w-]+)/(?P<tov_slug>[\w-]+)/$', tovar),
     ]
 
-
-from django.conf import settings
-from django.conf.urls.static import static
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

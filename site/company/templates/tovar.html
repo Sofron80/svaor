@@ -6,6 +6,7 @@
         <h3>{{tovar}}</h3>
         <img src="/media/{{tovar.img}}" alt="{{tovar}}">
         <div class="tovar-opis">
+            <p><b>Описание:</b><br />{{ tovar.desk }}</p>
             <p><b>Цена:</b> от <b>{{tovar.cena}}</b> руб./{{tovar.ed}}</p>
             {%if tovar.min_raz %}
             <p><b>Мин. размер заказа:</b> <b>{{tovar.min_raz}}</b> {{tovar.ed}}</p>
@@ -14,7 +15,6 @@
             <p><b>Условия оплаты:</b> Возможен безналичный расчет</p>
             <p><b>Доставка:</b> {{tovar.dostavka}}</p>
             <a class="button-zak" href="/zakaz/{{tovar.slug}}">Заказать</a>
-            
         </div>
     </div>
     </div>
