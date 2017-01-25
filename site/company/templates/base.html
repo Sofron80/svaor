@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
+    <meta name="keywords" content="{{ keyw }}"/>
+    <meta name="description" content="{{ desk }}"/>
     <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -50,10 +52,9 @@
                             {% for i in pages %}
                             <li>
                                 {% if i.id == page_id %}
-
-                                <a href="{{i.get_url}}" class="activ">{{ i.name }}</a></li>
+                                <a href="{{i.get_url}}" class="activ">{{ i.name }}</a>
                                 {% else %}
-                                <a href="{{i.get_url}}" >{{ i.name }}</a></li>
+                                <a href="{{i.get_url}}" >{{ i.name }}</a>
                                 {% endif %}
                             </li>
                             {% endfor %}

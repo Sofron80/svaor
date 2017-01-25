@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>500</title>
-</head>
-<body>
-    <h1>Ошибка 500</h1>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="catalog">
+    <h1>Произошла ошибка на сервере</h1>
     <a href="/">векрнуться на главную</a>
-</body>
-</html>
+</div>
+
+{% endblock %}

@@ -3,4 +3,5 @@
 svaor.tar
 venv/
 site/db.sqlite3
+site.tar
 

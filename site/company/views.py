@@ -10,6 +10,8 @@ def index(request):
             "title": "Главная страница",
             "category": Category.objects.all(),
             "pages": Page.objects.all(),
+            "keyw": Page.objects.get(slug="index").keyw,
+            "desk": Page.objects.get(slug="index").desk,
             "tovar": Tovar.objects.all()[:20],
             "page_id": 1,
             }
@@ -18,10 +20,13 @@ def index(request):
 
 def contact(request):
     page = Page.objects.get(slug=request.path.strip('/'))
+    # print(page.keyw)
     date = {
             "title": page.name,
             "category": Category.objects.all(),
             "pages": Page.objects.all(),
+            "keyw": page.keyw,
+            "desk": page.desk,
             "page_id": page.id,
     }
     return render(request, "contact.html", date)
@@ -33,6 +38,8 @@ def company(request):
         "title": page.name,
         "category": Category.objects.all(),
         "pages": Page.objects.all(),
+        "keyw": page.keyw,
+        "desk": page.desk,
         "page_id": page.id,
     }
     return render(request, "company.html", date)
@@ -44,6 +51,8 @@ def catalog(request):
         "title": page.name,
         "category": Category.objects.all(),
         "pages": Page.objects.all(),
+        "keyw": page.keyw,
+        "desk": page.desk,
         "page_id": page.id,
     }
     return render(request, "catalog.html", date)
@@ -58,6 +67,8 @@ def category(request, cat_slug):
         "category": Category.objects.all(),
         "tovar": Tovar.objects.filter(category=category),
         "pages": Page.objects.all(),
+        "keyw": category.keyw,
+        "desk": category.desk,
         "page_id": 4,
     }
     return render(request, "category.html", date)
@@ -70,6 +81,8 @@ def tovar(request, cat_slug, tov_slug):
         "category": Category.objects.all(),
         "tovar": tovar,
         "pages": Page.objects.all(),
+        "keyw": tovar.keyw,
+        "desk": tovar.desk,
         "page_id": 4,
     }
     return render(request, "tovar.html", date)
@@ -83,3 +96,13 @@ def zakaz(request):
     my_send = "Товар: {}\nАвтор: {}\nТелефон: {}\nСообщение:{}".format(my_post['zakaz'], my_post['author'], my_post['phone'], my_post['text'])
     send_mail('Заказ товара', my_send, settings.EMAIL_HOST_USER, ['89507850000s@gmail.com'], fail_silently=False)
     return HttpResponse("")
+
+def error(request):
+    date = {
+            "title": "404",
+            "category": Category.objects.all(),
+            "pages": Page.objects.all(),
+            "tovar": Tovar.objects.all()[:20],
+            "page_id": 1,
+            }
+    return render(request, "404.html", date)

@@ -8,7 +8,7 @@ class Category(models.Model):
                             verbose_name="Наименование категории")
     slug = models.CharField(max_length=250,
                             verbose_name="Наименование для ссылки")
-    keuw = models.CharField(max_length=250, verbose_name="Ключевые слова",
+    keyw = models.CharField(max_length=250, verbose_name="Ключевые слова",
                             blank=True, null=True)
     desk = models.CharField(max_length=250, verbose_name="Краткое описание",
                             blank=True, null=True)
@@ -33,7 +33,7 @@ class Tovar(models.Model):
 
     slug = models.CharField(max_length=250,
                             verbose_name="Наименование для ссылки")
-    keuw = models.CharField(max_length=250, verbose_name="Ключевые слова",
+    keyw = models.CharField(max_length=250, verbose_name="Ключевые слова",
                             blank=True, null=True)
     desk = models.CharField(max_length=250, verbose_name="Краткое описание",
                             blank=True, null=True)
@@ -44,7 +44,7 @@ class Tovar(models.Model):
                           blank=True, null=True)
     nalich = models.CharField(max_length=100, verbose_name="Наличие",
                           blank=True, null=True)
-    
+
     dostavka = models.CharField(max_length=100, blank=True, null=True,
                                 verbose_name="Доставка")
     img = models.ImageField(upload_to=upload_to, blank=True, null=True)
@@ -77,7 +77,7 @@ class Page(models.Model):
     def get_url(self):
         if self.slug == "index":
             return "/"
-        return "/{}".format(self.slug)
+        return "/{}/".format(self.slug)
 
     class Meta():
         verbose_name = "Страница"
