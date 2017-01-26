@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://ooo-svaor.ru/sitemap.xml

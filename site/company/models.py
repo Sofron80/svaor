@@ -14,7 +14,7 @@ class Category(models.Model):
                             blank=True, null=True)
 
     def get_url(self):
-        return "/category/{}".format(self.slug)
+        return "/category/{}/".format(self.slug)
 
     def __str__(self):
         return self.name
@@ -51,7 +51,7 @@ class Tovar(models.Model):
     category = models.ForeignKey(Category)
 
     def get_url(self):
-        return "/category/{}/{}".format(self.category.slug, self.slug)
+        return "/category/{}/{}/".format(self.category.slug, self.slug)
 
     def __str__(self):
         return self.name

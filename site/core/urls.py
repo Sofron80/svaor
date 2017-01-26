@@ -5,7 +5,6 @@ from django.conf.urls.static import static
 from company.views import index, contact, company, catalog, category, tovar, zakaz, error
 
 urlpatterns = [
-
     url(r'^$', index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^zakaz/$', zakaz, name="zakaz"),
